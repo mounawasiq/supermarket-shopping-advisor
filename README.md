@@ -49,47 +49,55 @@ A key feature is the **Migration Budgeting Module** — a dedicated tool that he
 ---
 
 ## 📁 Project Structure
-
 ```
 supermarket-shopping-advisor/
-├── backend/                  # Java Spring Boot REST API
+├── backend/                    # Java Spring Boot REST API
 │   └── src/main/java/com/shopping/
-│       ├── controller/       # REST endpoints
-│       ├── service/          # Business logic
-│       ├── repository/       # Data access layer
-│       ├── entity/           # JPA entities
-│       └── dto/              # Data transfer objects
+│       ├── controller/         # REST endpoints
+│       ├── service/            # Business logic
+│       ├── repository/         # Data access layer
+│       ├── entity/             # JPA entities
+│       ├── dto/                # Data transfer objects
+│       └── config/             # Swagger + app config
 │
-├── frontend/                 # Angular application
+├── frontend/                   # Angular application
 │   └── src/app/
-│       ├── components/       # UI components
-│       ├── services/         # API service layer
-│       └── models/           # TypeScript interfaces
+│       ├── components/         # UI components
+│       ├── services/           # API service layer
+│       └── models/             # TypeScript interfaces
 │
-├── data-engineering/         # Python scrapers & pipelines
-│   └── scrapers/             # One scraper per supermarket
+├── data-engineering/           # Python scrapers & pipelines
+│   ├── scrapers/               # One scraper per supermarket
+│   ├── scheduler.py            # Runs scrapers daily
+│   ├── data_processor.py       # Cleans scraped data
+│   └── db_uploader.py          # Saves data to PostgreSQL
 │
-├── ml-models/                # Python ML models
-│   ├── price_prediction.py   # ARIMA price forecasting
-│   ├── spending_forecast.py  # Random Forest spending forecast
+├── ml-models/                  # Python ML models
+│   ├── price_prediction.py     # ARIMA price forecasting
+│   ├── spending_forecast.py    # Random Forest spending forecast
 │   └── recommendation_engine.py
 │
 └── database/
-    └── schema.sql            # Full PostgreSQL schema
+    └── schema.sql              # Full PostgreSQL schema (11 tables)
 ```
 
 ---
 
 ## 🗄️ Database Schema
 
-The database includes the following tables:
+The database includes **11 tables**:
 
+**Core Tables**
 - `users` — User accounts
+- `supermarkets` — Reference data for 7 supermarkets
+- `products` — Clean product reference list
+- `prices` — Historical and current supermarket prices
 - `budgets` — Budget configurations per user
 - `shopping_list_items` — User shopping lists
-- `prices` — Historical and current supermarket prices
 - `spending` — User spending history
 - `predictions` — Stored ML prediction results
+
+**Migration Module Tables**
 - `migration_setup_costs` — First-month setup cost reference data
 - `user_migration_profile` — User immigration profile settings
 - `migration_tracking` — Per-user purchase tracking for setup costs
@@ -153,15 +161,15 @@ Full API documentation available via **Swagger UI** at `/swagger-ui.html` when r
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Java 17+
+- Java 21+
 - Node.js 18+ and Angular CLI
 - Python 3.10+
 - PostgreSQL 14+
 - Docker & Docker Compose (optional)
 
 ### Run with Docker
-```bash
-git clone https://github.com/YOUR_USERNAME/supermarket-shopping-advisor.git
+```
+git clone https://github.com/mounawasiq/supermarket-shopping-advisor.git
 cd supermarket-shopping-advisor
 docker-compose up --build
 ```
@@ -169,20 +177,20 @@ docker-compose up --build
 ### Run Manually
 
 **Backend:**
-```bash
+```
 cd backend
 ./mvnw spring-boot:run
 ```
 
 **Frontend:**
-```bash
+```
 cd frontend
 npm install
 ng serve
 ```
 
 **Data Engineering:**
-```bash
+```
 cd data-engineering
 pip install -r requirements.txt
 python scheduler.py
@@ -193,9 +201,9 @@ python scheduler.py
 ## 📅 Development Roadmap
 
 - [x] Project blueprint and architecture design
-- [ ] PostgreSQL schema setup
-- [ ] Java Spring Boot backend skeleton
-- [ ] Angular frontend skeleton
+- [x] PostgreSQL schema setup (11 tables)
+- [x] Java Spring Boot backend skeleton
+- [x] Angular frontend skeleton
 - [ ] Supermarket scrapers (7 supermarkets)
 - [ ] Core API endpoints
 - [ ] Migration Budgeting Module (backend + frontend)
