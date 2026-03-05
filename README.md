@@ -3,8 +3,8 @@
 A full-stack intelligent shopping platform that helps users compare supermarket prices, track budgets, predict spending, and plan first-month setup costs in the UK.
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
-![Java](https://img.shields.io/badge/Java-Spring%20Boot-green)
-![Angular](https://img.shields.io/badge/Frontend-Angular-red)
+![Java](https://img.shields.io/badge/Java-21-green)
+![Angular](https://img.shields.io/badge/Frontend-Angular%2017-red)
 ![Python](https://img.shields.io/badge/Data-Python-blue)
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
 
@@ -27,7 +27,7 @@ A key feature is the **Migration Budgeting Module** — a dedicated tool that he
 - **Smart Recommendations** — Personalised shopping suggestions based on your list and budget
 - **Spending Forecast** — Random Forest model predicts future spending based on history
 
-### Migration Budgeting Module *(Core Feature)*
+### 🌍 Migration Budgeting Module *(Core Feature)*
 - First-month setup checklist (winter clothing, school essentials, home setup, household supplies)
 - Cost estimates with cheapest retailer recommendations
 - Budget progress tracker
