@@ -1,0 +1,19 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Backend
+backend/target/
+backend/.mvn/
+
+# Python
+data-engineering/__pycache__/
+data-engineering/venv/
+ml-models/__pycache__/
+ml-models/venv/
+
+# General
+.env
+*.log
+.DS_Store
