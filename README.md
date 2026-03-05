@@ -39,7 +39,7 @@ A key feature is the **Migration Budgeting Module** — a dedicated tool that he
 
 | Layer | Technology |
 |---|---|
-| Backend | Java 17, Spring Boot, REST API, Swagger/OpenAPI |
+| Backend | Java 21, Spring Boot, REST API, Swagger/OpenAPI |
 | Frontend | Angular 17, TypeScript |
 | Database | PostgreSQL |
 | Data Engineering | Python, BeautifulSoup, Scrapy |
